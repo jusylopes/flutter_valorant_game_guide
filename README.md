@@ -1,16 +1,23 @@
-# flutter_valorant_game_guide
+# 🔫 Valorant Game Guide
+## Sobre o projeto
 
-A new Flutter project.
+O Aplicativo consome a API [Valorant API
+](https://valorant-api.com).
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+## Layout 
+<p>
 
-A few resources to get you started if this is your first Flutter project:
+</p>
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Tecnologias utilizadas
+
+* Flutter
+* Valorant API
+* Bloc
+
+### Desenvolvedora
+
+Jusy Lopes
+https://www.linkedin.com/in/jusylopes
