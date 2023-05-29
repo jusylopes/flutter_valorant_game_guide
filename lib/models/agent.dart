@@ -4,9 +4,17 @@ class Agent {
   final int status;
   final List<AgentData> data;
 
-  factory Agent.fromJson(Map<String, dynamic> json) => Agent(
-      status: json['status'],
-      data: List.from(json['data']).map((e) => AgentData.fromJson(e)).toList());
+  factory Agent.fromJson(Map<String, dynamic> json) {
+    final List<AgentData> data = (json['data'] as List<dynamic>?)
+            ?.map((e) => AgentData.fromJson(e))
+            .toList() ??
+        [];
+
+    return Agent(
+      status: json['status'] ?? 0,
+      data: data,
+    );
+  }
 }
 
 class AgentData {
@@ -18,9 +26,9 @@ class AgentData {
       this.characterTags,
       required this.displayIcon,
       required this.displayIconSmall,
-      required this.bustPortrait,
-      required this.fullPortrait,
-      required this.fullPortraitV2,
+      this.bustPortrait,
+      this.fullPortrait,
+      this.fullPortraitV2,
       required this.killfeedPortrait,
       required this.background,
       required this.backgroundGradientColors,
@@ -40,9 +48,9 @@ class AgentData {
   final List<String>? characterTags;
   final String displayIcon;
   final String displayIconSmall;
-  final String bustPortrait;
-  final String fullPortrait;
-  final String fullPortraitV2;
+  final String? bustPortrait;
+  final String? fullPortrait;
+  final String? fullPortraitV2;
   final String killfeedPortrait;
   final String background;
   final List<String> backgroundGradientColors;
@@ -51,7 +59,7 @@ class AgentData {
   final bool isPlayableCharacter;
   final bool isAvailableForTest;
   final bool isBaseContent;
-  final Role role;
+  final Role? role;
   final List<Abilities> abilities;
   final VoiceLine voiceLine;
 
@@ -60,7 +68,7 @@ class AgentData {
       displayName: json['displayName'],
       description: json['description'],
       developerName: json['developerName'],
-      characterTags: json['characterTags'].cast<String>(),
+      characterTags: null,
       displayIcon: json['displayIcon'],
       displayIconSmall: json['displayIconSmall'],
       bustPortrait: json['bustPortrait'],
@@ -74,8 +82,10 @@ class AgentData {
       isPlayableCharacter: json['isPlayableCharacter'],
       isAvailableForTest: json['isAvailableForTest'],
       isBaseContent: json['isBaseContent'],
-      role: Role.fromJson(json['role']),
-      abilities: List<Abilities>.from(json['abilities'].map((x) => x)),
+      role: (json['role'] != null ? Role.fromJson(json['role']) : null),
+      abilities: List.from(json['abilities'])
+          .map((e) => Abilities.fromJson(e))
+          .toList(),
       voiceLine: VoiceLine.fromJson(json['voiceLine']));
 }
 
@@ -106,12 +116,12 @@ class Abilities {
       {required this.slot,
       required this.displayName,
       required this.description,
-      required this.displayIcon});
+      this.displayIcon});
 
   final String slot;
   final String displayName;
   final String description;
-  final String displayIcon;
+  final String? displayIcon;
 
   factory Abilities.fromJson(Map<String, dynamic> json) => Abilities(
       slot: json['slot'],
