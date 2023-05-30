@@ -1,24 +1,5 @@
 class Agent {
-  Agent({required this.status, required this.data});
-
-  final int status;
-  final List<AgentData> data;
-
-  factory Agent.fromJson(Map<String, dynamic> json) {
-    final List<AgentData> data = (json['data'] as List<dynamic>?)
-            ?.map((e) => AgentData.fromJson(e))
-            .toList() ??
-        [];
-
-    return Agent(
-      status: json['status'] ?? 0,
-      data: data,
-    );
-  }
-}
-
-class AgentData {
-  AgentData(
+  Agent(
       {required this.uuid,
       required this.displayName,
       required this.description,
@@ -63,7 +44,7 @@ class AgentData {
   final List<Abilities> abilities;
   final VoiceLine voiceLine;
 
-  factory AgentData.fromJson(Map<String, dynamic> json) => AgentData(
+  factory Agent.fromJson(Map<String, dynamic> json) => Agent(
       uuid: json['uuid'],
       displayName: json['displayName'],
       description: json['description'],

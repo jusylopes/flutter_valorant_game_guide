@@ -27,21 +27,10 @@ void main() {
       test('getAgents should return Agent', () async {
         final agents = await repository.getAgents();
 
-        expect(agents, isA<Agent>());
-
-        final expectedAgentData = AgentData.fromJson(
-            (jsonMock['data'] as List<dynamic>?)?.first
-                    as Map<String, dynamic>? ??
-                {});
-        final expectedAgent =
-            Agent(status: jsonMock['status'] as int, data: [expectedAgentData]);
-
-        final parsedAgent = Agent.fromJson(jsonMock);
-        expect(parsedAgent.data[0].toString(),
-            equals(expectedAgentData.toString()));
-        expect(parsedAgent.status, equals(expectedAgent.status));
-        expect(parsedAgent.data[0].displayName.toString(),
-            equals(expectedAgentData.displayName.toString()));
+        expect(agents, isInstanceOf<List<Agent>>());
+        expect(agents.length, equals(1));
+        expect(agents[0].displayName, 'Gekko');
+        expect(agents[0].developerName, 'Aggrobot');
       });
     });
   });
