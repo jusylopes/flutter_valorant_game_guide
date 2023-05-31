@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_valorant_game_guide/models/agent.dart';
+import 'package:flutter_valorant_game_guide/repositories/adapters/agent_adapter.dart';
 import 'package:flutter_valorant_game_guide/repositories/repository.dart';
 import 'package:mocktail/mocktail.dart';
 
@@ -10,6 +11,8 @@ void main() {
   group('Repository Agent', () {
     late MockDio dio;
     late Repository repository;
+    late AgentAdapter agentAdapter;
+
     final response = Response(
       statusCode: 200,
       data: jsonMock,
@@ -18,19 +21,20 @@ void main() {
 
     setUp(() {
       dio = MockDio();
-      repository = Repository(dio: dio);
+      agentAdapter = AgentAdapter();
 
+      repository = Repository(dio: dio, agentAdapter: agentAdapter);
       when(() => dio.get(any())).thenAnswer((_) async => response);
     });
 
     group('getAgents', () {
       test('getAgents should return Agent', () async {
         final agents = await repository.getAgents();
+        final Agent agent = agents[0];
 
-        expect(agents, isInstanceOf<List<Agent>>());
-        expect(agents.length, equals(1));
-        expect(agents[0].displayName, 'Gekko');
-        expect(agents[0].developerName, 'Aggrobot');
+        expect(agent, isInstanceOf<Agent>());
+        expect(agent.displayName, 'Gekko');
+        expect(agent.developerName, 'Aggrobot');
       });
     });
   });
