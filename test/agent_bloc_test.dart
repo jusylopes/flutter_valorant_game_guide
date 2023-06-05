@@ -2,14 +2,11 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_valorant_game_guide/blocs/agent/agent_bloc.dart';
 import 'package:flutter_valorant_game_guide/blocs/agent/agent_event.dart';
 import 'package:flutter_valorant_game_guide/models/agent.dart';
+import 'package:flutter_valorant_game_guide/models/enum/agent_status.dart';
 import 'package:flutter_valorant_game_guide/repositories/repository.dart';
 import 'package:mocktail/mocktail.dart';
 
-class MockRepository extends Mock implements Repository {
-  // @override
-  // Future<List<Agent>> getAgents() =>
-  //     Future.delayed(const Duration(seconds: 2), () => [...agents]);
-}
+class MockRepository extends Mock implements Repository {}
 
 void main() {
   group('Bloc Agent', () {
@@ -20,11 +17,21 @@ void main() {
       mockRepository = MockRepository();
       agentBloc = AgentBloc(repository: mockRepository);
       when(() => mockRepository.getAgents())
-          .thenAnswer((_) => Future.value(agents));
+          .thenAnswer((_) async => Future.value(agents));
     });
 
-    test('should return a list of agents', () async {
+    test('should load agents successfully', () async {
       agentBloc.add(AgentLoaded());
+
+      await Future.delayed(const Duration(seconds: 2));
+
+      const expectedStatus = AgentStatus.success;
+      final expectedAgents = agents;
+
+      expect(agentBloc.state.status, expectedStatus);
+      expect(agentBloc.state.agents, expectedAgents);
+
+      
     });
   });
 }
