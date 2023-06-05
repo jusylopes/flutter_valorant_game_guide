@@ -23,15 +23,13 @@ void main() {
     test('should load agents successfully', () async {
       agentBloc.add(AgentLoaded());
 
-      await Future.delayed(const Duration(seconds: 2));
+      await Future.delayed(Duration.zero);
 
       const expectedStatus = AgentStatus.success;
       final expectedAgents = agents;
 
       expect(agentBloc.state.status, expectedStatus);
       expect(agentBloc.state.agents, expectedAgents);
-
-      
     });
   });
 }
