@@ -20,17 +20,25 @@ void main() {
           .thenAnswer((_) async => Future.value(agents));
     });
 
-    test('should load agents successfully', () async {
+    test(
+        'the initial state for the AgentBloc is AgentState (status: AgentStatus.initial, agents: [])',
+        () {
+      expect(agentBloc.state.status, AgentStatus.initial);
+      expect(agentBloc.state.agents, []);
+    });
+
+    test(
+        'the success state for the AgentBloc is AgentState (status: AgentStatus.success, agents: agents)',
+        () async {
       agentBloc.add(AgentLoaded());
 
       await Future.delayed(Duration.zero);
 
-      const expectedStatus = AgentStatus.success;
-      final expectedAgents = agents;
-
-      expect(agentBloc.state.status, expectedStatus);
-      expect(agentBloc.state.agents, expectedAgents);
+      expect(agentBloc.state.status, AgentStatus.success);
+      expect(agentBloc.state.agents, agents);
     });
+
+    tearDown(() => agentBloc.close());
   });
 }
 
