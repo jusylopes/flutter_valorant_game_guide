@@ -1,7 +1,8 @@
+import 'package:equatable/equatable.dart';
 import 'package:flutter_valorant_game_guide/models/agent.dart';
 import 'package:flutter_valorant_game_guide/models/enum/agent_status.dart';
 
-class AgentState {
+class AgentState  extends Equatable{
   const AgentState({
     required this.status,
     required this.agents,
@@ -23,4 +24,7 @@ class AgentState {
       errorMessage: errorMessage ?? this.errorMessage,
     );
   }
+
+    @override
+  List<Object?> get props => [status, agents, errorMessage];
 }
