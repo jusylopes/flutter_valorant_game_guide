@@ -5,6 +5,8 @@ import 'package:flutter_valorant_game_guide/blocs/agent/agent_bloc.dart';
 import 'package:flutter_valorant_game_guide/blocs/agent/agent_event.dart';
 import 'package:flutter_valorant_game_guide/repositories/adapters/agent_adapter.dart';
 import 'package:flutter_valorant_game_guide/repositories/repository.dart';
+import 'package:flutter_valorant_game_guide/resources/strings.dart';
+import 'package:flutter_valorant_game_guide/resources/theme.dart';
 
 void main() {
   runApp(const MyApp());
@@ -25,9 +27,10 @@ class MyApp extends StatelessWidget {
               AgentBloc(repository: agentRepository)..add(AgentLoaded()),
         ),
       ],
-      child: const MaterialApp(
+      child: MaterialApp(
+        theme: ValorantTheme.dark,
         debugShowCheckedModeBanner: false,
-        title: '',
+        title: ValorantStrings.appName,
       ),
     );
   }
