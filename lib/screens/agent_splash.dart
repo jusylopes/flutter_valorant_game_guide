@@ -18,15 +18,17 @@ class _AgentSplashState extends State<AgentSplash>
     super.initState();
     _controller = AnimationController(
       vsync: this,
-      duration: const Duration(seconds: 2),
-    )..repeat();
+      duration: const Duration(seconds: 12),
+    );
 
     _animation = Tween<Offset>(
-      begin: const Offset(0, 0),
-      end: const Offset(0, -0.5),
-    ).animate(_controller);
+      begin: Offset.zero,
+      end: const Offset(0, 0.1),
+    ).animate(CurvedAnimation(
+        parent: _controller,
+        curve: const Interval(0.0, 0.8, curve: Curves.fastEaseInToSlowEaseOut)));
 
-    //_controller.repeat(reverse: true);
+    _controller.repeat(reverse: true);
   }
 
   @override
@@ -35,12 +37,16 @@ class _AgentSplashState extends State<AgentSplash>
       backgroundColor: ValorantColors.primaryColor,
       body: Stack(
         children: [
-          const Positioned.fill(
-            child: FlutterLogo(size: 200),
-          ),
           SlideTransition(
             position: _animation,
-            child:Image.asset('assets/images/valorant-logo.png'),
+            child: Align(
+              alignment: Alignment.center,
+              child: SizedBox(
+                width: 150,
+                height: 150,
+                child: Image.asset('assets/images/valorant-logo.png'),
+              ),
+            ),
           ),
         ],
       ),
