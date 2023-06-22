@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_valorant_game_guide/resources/colors.dart';
+import 'package:flutter_valorant_game_guide/screens/agent_home.dart';
 
 class AgentSplash extends StatefulWidget {
   const AgentSplash({super.key});
@@ -18,37 +19,41 @@ class _AgentSplashState extends State<AgentSplash>
     super.initState();
     _controller = AnimationController(
       vsync: this,
-      duration: const Duration(seconds: 12),
-    );
+      duration: const Duration(seconds: 3),
+    )..repeat(reverse: true);
 
     _animation = Tween<Offset>(
-      begin: Offset.zero,
-      end: const Offset(0, 0.1),
-    ).animate(CurvedAnimation(
+      begin: const Offset(0, -0.4),
+      end: const Offset(0, -0.5),
+    ).animate(
+      CurvedAnimation(
         parent: _controller,
-        curve: const Interval(0.0, 0.8, curve: Curves.fastEaseInToSlowEaseOut)));
+        curve: Curves.easeIn,
+      ),
+    );
 
-    _controller.repeat(reverse: true);
+    Future.delayed(const Duration(seconds: 5), () {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => const AgentHome()),
+      );
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ValorantColors.primaryColor,
-      body: Stack(
-        children: [
-          SlideTransition(
-            position: _animation,
-            child: Align(
-              alignment: Alignment.center,
-              child: SizedBox(
-                width: 150,
-                height: 150,
-                child: Image.asset('assets/images/valorant-logo.png'),
-              ),
-            ),
+      body: SlideTransition(
+        position: _animation,
+        child: Align(
+          alignment: Alignment.bottomCenter,
+          child: SizedBox(
+            width: 100,
+            height: 100,
+            child: Image.asset('assets/images/valorant-logo.png'),
           ),
-        ],
+        ),
       ),
     );
   }
