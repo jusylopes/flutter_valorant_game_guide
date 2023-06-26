@@ -7,7 +7,7 @@ import 'package:flutter_valorant_game_guide/repositories/adapters/agent_adapter.
 import 'package:flutter_valorant_game_guide/repositories/repository.dart';
 import 'package:flutter_valorant_game_guide/resources/strings.dart';
 import 'package:flutter_valorant_game_guide/resources/theme.dart';
-import 'package:flutter_valorant_game_guide/screens/agent_splash.dart';
+import 'package:flutter_valorant_game_guide/views/splash_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
         theme: ValorantTheme.dark,
         debugShowCheckedModeBanner: false,
         title: ValorantStrings.appName,
-        home: const AgentSplash(),
+        home: const SplashPage(),
       ),
     );
   }
