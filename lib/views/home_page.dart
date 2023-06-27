@@ -42,7 +42,7 @@ class AgentHomePage extends StatelessWidget {
                 insets: EdgeInsets.symmetric(horizontal: 50.0),
               ),
               unselectedLabelColor: Colors.grey,
-              
+              labelColor: ValorantColors.secondaryColor,
               tabs: myTabs),
         ),
         body: const TabBarView(children: [
