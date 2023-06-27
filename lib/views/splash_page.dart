@@ -48,8 +48,8 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
         child: Align(
           alignment: Alignment.bottomCenter,
           child: SizedBox(
-            width: 100,
-            height: 100,
+            width: 80,
+            height: 80,
             child: Image.asset('assets/images/valorant-logo.png'),
           ),
         ),
