@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_valorant_game_guide/resources/colors.dart';
-import 'package:flutter_valorant_game_guide/views/home_page.dart';
+import 'package:flutter_valorant_game_guide/screens/home_screen.dart';
 
-class SplashPage extends StatefulWidget {
-  const SplashPage({super.key});
+class SplashScreen extends StatefulWidget {
+  const SplashScreen({super.key});
 
   @override
-  State<SplashPage> createState() => _SplashPageState();
+  State<SplashScreen> createState() => _SplashScreenState();
 }
 
-class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
+class _SplashScreenState extends State<SplashScreen>
+    with TickerProviderStateMixin {
   late final AnimationController _controller;
   late final Animation<Offset> _animation;
 
@@ -34,7 +35,7 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
     Future.delayed(const Duration(seconds: 5), () {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => const AgentHomePage()),
+        MaterialPageRoute(builder: (context) => const HomeScreen()),
       );
     });
   }

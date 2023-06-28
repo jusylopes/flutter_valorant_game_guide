@@ -32,8 +32,8 @@ class Agent {
   final String? bustPortrait;
   final String? fullPortrait;
   final String? fullPortraitV2;
-  final String killfeedPortrait;
-  final String background;
+  final String? killfeedPortrait;
+  final String? background;
   final List<String> backgroundGradientColors;
   final String assetPath;
   final bool isFullPortraitRightFacing;
