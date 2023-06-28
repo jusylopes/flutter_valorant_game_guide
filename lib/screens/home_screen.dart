@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_valorant_game_guide/resources/colors.dart';
 import 'package:flutter_valorant_game_guide/resources/strings.dart';
 import 'package:flutter_valorant_game_guide/screens/agents_screen.dart';
 
@@ -8,8 +7,6 @@ class HomeScreen extends StatelessWidget {
 
   static const List<Tab> myTabs = <Tab>[
     Tab(child: Text('Agents')),
-    Tab(child: Text('Weapons')),
-    Tab(child: Text('Maps')),
   ];
 
   @override
@@ -33,17 +30,7 @@ class HomeScreen extends StatelessWidget {
               ),
             ],
           ),
-          bottom: TabBar(
-              labelStyle: TextStyle(
-                  fontSize: 18.0, fontFamily: ValorantStrings.productSansFont),
-              indicator: const UnderlineTabIndicator(
-                borderSide: BorderSide(
-                    width: 3.0, color: ValorantColors.secondaryColor),
-                insets: EdgeInsets.symmetric(horizontal: 50.0),
-              ),
-              unselectedLabelColor: Colors.grey,
-              labelColor: ValorantColors.secondaryColor,
-              tabs: myTabs),
+          bottom: const TabBar(tabs: myTabs),
         ),
         body: const TabBarView(children: [
           AgentsScreen(),
