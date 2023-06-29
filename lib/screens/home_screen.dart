@@ -7,6 +7,8 @@ class HomeScreen extends StatelessWidget {
 
   static const List<Tab> myTabs = <Tab>[
     Tab(child: Text('Agents')),
+    Tab(child: Text('Weapoins')),
+    Tab(child: Text('Maps')),
   ];
 
   @override
@@ -33,6 +35,8 @@ class HomeScreen extends StatelessWidget {
           bottom: const TabBar(tabs: myTabs),
         ),
         body: const TabBarView(children: [
+          AgentsScreen(),
+          AgentsScreen(),
           AgentsScreen(),
         ]),
       ),
