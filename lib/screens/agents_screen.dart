@@ -27,9 +27,15 @@ class _AgentsScreenState extends State<AgentsScreen> {
               case AgentStatus.loading:
                 return const AgentCircularProgressIndicator();
               case AgentStatus.success:
-                return ListView.builder(
-                  scrollDirection: Axis.horizontal,
+                return GridView.builder(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
                   itemCount: state.agents.length,
+                  shrinkWrap: true,
+                  gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+                      maxCrossAxisExtent: 200,
+                      childAspectRatio: 0.7,
+                      crossAxisSpacing: 20,
+                      ),
                   itemBuilder: (_, index) {
                     final Agent agent = state.agents[index];
                     return AgentCard(agent: agent);
