@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_valorant_game_guide/resources/colors.dart';
+import 'package:flutter_valorant_game_guide/resources/strings.dart';
 import 'package:flutter_valorant_game_guide/screens/home_screen.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -49,9 +50,8 @@ class _SplashScreenState extends State<SplashScreen>
         child: Align(
           alignment: Alignment.bottomCenter,
           child: SizedBox(
-            width: 80,
-            height: 80,
-            child: Image.asset('assets/images/valorant-logo.png'),
+            width: MediaQuery.of(context).size.width * 0.18,
+            child: Image.asset(ValorantStrings.appLogo),
           ),
         ),
       ),
