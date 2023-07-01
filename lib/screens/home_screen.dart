@@ -11,6 +11,8 @@ class HomeScreen extends StatelessWidget {
     Tab(child: Text('Maps')),
   ];
 
+
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -20,9 +22,8 @@ class HomeScreen extends StatelessWidget {
           title: Column(
             children: [
               SizedBox(
-                width: 30,
-                height: 30,
-                child: Image.asset('assets/images/valorant-logo.png'),
+                width: 30,                
+                child: Image.asset(ValorantStrings.appLogo),
               ),
               const Text(
                 ValorantStrings.appName,

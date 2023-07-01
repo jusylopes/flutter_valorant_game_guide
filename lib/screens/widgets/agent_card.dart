@@ -14,25 +14,25 @@ class AgentCard extends StatelessWidget {
       alignment: AlignmentDirectional.bottomStart,
       children: [
         Container(
-          height: 170,
-          decoration: const BoxDecoration(
-            borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(25),
-                topRight: Radius.circular(25),
-                bottomLeft: Radius.circular(25)),
-            color: ValorantColors.secondaryColor,
-          ),
+          height: 180,
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(30),
+            color: ValorantColors.primaryColorBackground,
+              image: const DecorationImage(
+                image: AssetImage('images/veg.jpg'),
+                fit: BoxFit.cover,
+              )),
         ),
         Padding(
           padding: const EdgeInsets.only(left: 50),
           child: SizedBox(
             height: 250,
-            child: agent.fullPortrait != null
+            child: agent.bustPortrait != null
                 ? Image.network(
-                    agent.fullPortrait!,
+                    agent.bustPortrait!,
                     fit: BoxFit.cover,
                   )
-                : Image.asset('assets/images/valorant-logo.png'),
+                : Image.asset(ValorantStrings.appLogo),
           ),
         ),
         Positioned(
