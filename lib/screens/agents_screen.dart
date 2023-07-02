@@ -4,7 +4,7 @@ import 'package:flutter_valorant_game_guide/blocs/agent/agent_bloc.dart';
 import 'package:flutter_valorant_game_guide/blocs/agent/agent_state.dart';
 import 'package:flutter_valorant_game_guide/models/agent.dart';
 import 'package:flutter_valorant_game_guide/models/enum/agent_status.dart';
-import 'package:flutter_valorant_game_guide/screens/widgets/agent_card.dart';
+import 'package:flutter_valorant_game_guide/screens/widgets/agent_card_list.dart';
 import 'package:flutter_valorant_game_guide/screens/widgets/agent_circular_progress_indicator.dart';
 import 'package:flutter_valorant_game_guide/screens/widgets/agent_error_message.dart';
 
@@ -32,13 +32,13 @@ class _AgentsScreenState extends State<AgentsScreen> {
                   itemCount: state.agents.length,
                   shrinkWrap: true,
                   gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-                      maxCrossAxisExtent: 200,
-                      childAspectRatio: 0.7,
-                      crossAxisSpacing: 20,
-                      ),
+                    maxCrossAxisExtent: 200,
+                    childAspectRatio: 0.7,
+                    crossAxisSpacing: 20,
+                  ),
                   itemBuilder: (_, index) {
                     final Agent agent = state.agents[index];
-                    return AgentCard(agent: agent);
+                    return AgentCardList(agent: agent);
                   },
                 );
               case AgentStatus.error:
