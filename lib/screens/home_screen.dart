@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_valorant_game_guide/resources/colors.dart';
 import 'package:flutter_valorant_game_guide/resources/strings.dart';
 import 'package:flutter_valorant_game_guide/screens/agents_screen.dart';
 
@@ -11,32 +12,47 @@ class HomeScreen extends StatelessWidget {
     Tab(child: Text('Maps')),
   ];
 
-
-
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
       length: myTabs.length,
       child: Scaffold(
         appBar: AppBar(
+          backgroundColor: ValorantColors.primaryColor,
+          toolbarHeight: 120,
+          titleTextStyle: const TextStyle(
+            fontSize: 28.0,
+            fontWeight: FontWeight.w700,
+            color: Colors.white,
+          ),
           title: Column(
             children: [
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: SizedBox(
-                  width: 30,                
+                  width: 30,
                   child: Image.asset(ValorantStrings.appLogo),
                 ),
               ),
               const Text(
                 ValorantStrings.appName,
-                style: TextStyle(
-                  fontWeight: FontWeight.w700,
-                ),
               ),
             ],
           ),
-          bottom: const TabBar(tabs: myTabs),
+          bottom: TabBar(
+            tabs: myTabs,
+            indicator: const UnderlineTabIndicator(
+              borderSide:
+                  BorderSide(width: 3.0, color: ValorantColors.secondaryColor),
+              insets: EdgeInsets.symmetric(horizontal: 50.0),
+            ),
+            unselectedLabelColor: Colors.grey,
+            labelColor: ValorantColors.secondaryColor,
+            labelStyle: TextStyle(
+              fontSize: 18.0,
+              fontFamily: ValorantStrings.productSansFont,
+            ),
+          ),
         ),
         body: const TabBarView(children: [
           AgentsScreen(),
