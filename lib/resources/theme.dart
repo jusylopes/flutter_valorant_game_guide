@@ -4,25 +4,55 @@ import 'package:flutter_valorant_game_guide/resources/strings.dart';
 
 class ValorantTheme {
   static ThemeData get dark => ThemeData(
-      fontFamily: ValorantStrings.rubikFont,
-      visualDensity: VisualDensity.adaptivePlatformDensity,
-      brightness: Brightness.dark,
-      scaffoldBackgroundColor: ValorantColors.primaryColor,
-      appBarTheme: const AppBarTheme(
-          backgroundColor: ValorantColors.primaryColor,
+        fontFamily: ValorantStrings.rubikFont,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+        brightness: Brightness.dark,
+        scaffoldBackgroundColor: ValorantColors.primaryColor,
+        appBarTheme: const AppBarTheme(
           centerTitle: true,
-          toolbarHeight: 120,
           elevation: 0,
-          titleTextStyle: TextStyle(fontSize: 28.0)),
-      tabBarTheme: TabBarTheme(
-        labelStyle: TextStyle(
-            fontSize: 18.0, fontFamily: ValorantStrings.productSansFont),
-        indicator: const UnderlineTabIndicator(
-          borderSide:
-              BorderSide(width: 3.0, color: ValorantColors.secondaryColor),
-          insets: EdgeInsets.symmetric(horizontal: 50.0),
         ),
-        unselectedLabelColor: Colors.grey,
-        labelColor: ValorantColors.secondaryColor,
-      ));
+        textTheme: TextTheme(
+          titleLarge: const TextStyle(
+            fontWeight: FontWeight.w600,
+            fontSize: 16,
+            letterSpacing: 2.0,
+            color: Colors.white,
+          ),
+          titleMedium: const TextStyle(
+            fontWeight: FontWeight.w600,
+            fontSize: 12,
+            letterSpacing: 3.0,
+            color: Colors.white,
+          ),
+          bodyLarge: TextStyle(
+            fontWeight: FontWeight.w600,
+            fontSize: 12,
+            letterSpacing: 1.0,
+            color: Colors.grey,
+            fontFamily: ValorantStrings.productSansFont,
+          ),
+          bodyMedium: TextStyle(
+            fontWeight: FontWeight.w600,
+            fontSize: 12,
+            letterSpacing: 2.0,
+            height: 1.5,
+            color: Colors.white,
+            fontFamily: ValorantStrings.productSansFont,
+          ),
+          labelMedium: const TextStyle(
+            fontSize: 20,
+            letterSpacing: 2.0,
+            color: Colors.white,
+          ),
+          labelLarge: TextStyle(
+              letterSpacing: 2.0,
+              fontSize: 40,
+              color: Colors.white.withOpacity(0.7)),
+          labelSmall: const TextStyle(
+            fontSize: 12,
+            color: Colors.grey,
+          ),
+        ),
+      );
 }
