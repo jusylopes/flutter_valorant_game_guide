@@ -21,9 +21,12 @@ class HomeScreen extends StatelessWidget {
         appBar: AppBar(
           title: Column(
             children: [
-              SizedBox(
-                width: 30,                
-                child: Image.asset(ValorantStrings.appLogo),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: SizedBox(
+                  width: 30,                
+                  child: Image.asset(ValorantStrings.appLogo),
+                ),
               ),
               const Text(
                 ValorantStrings.appName,

@@ -1,6 +1,7 @@
 class ValorantStrings {
-  static const appName = 'Valorant Guide';
+  static const appName = 'VALORANT GUIDE';
   static String appLogo = 'assets/images/valorant-logo.png';
+  static String noImage = 'assets/images/valorant-no-image.png';
   static const errorMessage = 'erro';
 
   static String productSansFont = 'ProductSans';
