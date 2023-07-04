@@ -30,7 +30,8 @@ class AgentGridView extends StatelessWidget {
               color: ValorantColors.primaryColorBackground,
             ),
           ),
-          Center(
+          Hero(
+            tag: agent.uuid,
             child: AgentCachedNetworkImage(
               agent: agent,
               sizeImage: 250,
