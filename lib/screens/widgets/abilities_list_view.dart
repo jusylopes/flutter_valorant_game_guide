@@ -27,20 +27,17 @@ class AbilitiesListView extends StatelessWidget {
           return ExpansionTile(
             collapsedBackgroundColor: ValorantColors.primaryColorBackground,
             backgroundColor: ValorantColors.primaryColorBackground,
-            leading: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: CachedNetworkImage(
-                imageUrl: agentAbilities.displayIcon ??
-                    '',
-                progressIndicatorBuilder: (context, url, downloadProgress) =>
-                    const AgentCircularProgressIndicator(),
-                errorWidget: (context, url, error) => const Icon(Icons.error),
-                imageBuilder: (context, imageProvider) {
-                  return CircleAvatar(
-                    backgroundImage: imageProvider,
-                    backgroundColor: Colors.transparent,
-                  );
-                },
+            leading: FittedBox(
+              fit: BoxFit.cover,
+              child: Padding(
+                padding: const EdgeInsets.all(25.0),
+                child: CachedNetworkImage(
+                  imageUrl: agentAbilities.displayIcon ?? '',
+                  progressIndicatorBuilder: (context, url, downloadProgress) =>
+                      const AgentCircularProgressIndicator(),
+                  errorWidget: (context, url, error) => const Icon(Icons.error),
+                
+                ),
               ),
             ),
             title: Text(

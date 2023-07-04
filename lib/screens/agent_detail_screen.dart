@@ -48,10 +48,13 @@ class AgentDetailScreen extends StatelessWidget {
               const SizedBox(height: 25,)
             ],
           ),
-          AgentCachedNetworkImage(
-            agent: agent,
-            sizeImage: maxHeight / 2.1,
-            paddingImage: const EdgeInsets.only(left: 150),
+          Hero(
+             tag: agent.uuid,
+            child: AgentCachedNetworkImage(
+              agent: agent,
+              sizeImage: maxHeight / 2.1,
+              paddingImage: const EdgeInsets.only(left: 150),
+            ),
           ),
           const BackButtonScreen()
         ]),
