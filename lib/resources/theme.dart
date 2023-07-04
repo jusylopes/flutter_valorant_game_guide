@@ -47,7 +47,7 @@ class ValorantTheme {
           ),
           labelLarge: TextStyle(
               letterSpacing: 2.0,
-              fontSize: 40,
+              fontSize: 33,
               color: Colors.white.withOpacity(0.7)),
           labelSmall: const TextStyle(
             fontSize: 12,

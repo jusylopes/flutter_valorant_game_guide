@@ -1,21 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_valorant_game_guide/resources/colors.dart';
 import 'package:flutter_valorant_game_guide/resources/strings.dart';
-import 'package:flutter_valorant_game_guide/screens/agents_screen.dart';
+import 'package:flutter_valorant_game_guide/screens/agent_screen.dart';
+import 'package:flutter_valorant_game_guide/screens/map_screen.dart';
+import 'package:flutter_valorant_game_guide/screens/weapon_screen.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
   static const List<Tab> myTabs = <Tab>[
     Tab(child: Text('Agents')),
-    Tab(child: Text('Weapoins')),
+    Tab(child: Text('Weapons')),
     Tab(child: Text('Maps')),
   ];
 
   @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen>
+    with SingleTickerProviderStateMixin {
+  @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: myTabs.length,
+      length: HomeScreen.myTabs.length,
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: ValorantColors.primaryColor,
@@ -40,7 +48,7 @@ class HomeScreen extends StatelessWidget {
             ],
           ),
           bottom: TabBar(
-            tabs: myTabs,
+            tabs: HomeScreen.myTabs,
             indicator: const UnderlineTabIndicator(
               borderSide:
                   BorderSide(width: 3.0, color: ValorantColors.secondaryColor),
@@ -55,9 +63,9 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
         body: const TabBarView(children: [
-          AgentsScreen(),
-          AgentsScreen(),
-          AgentsScreen(),
+          AgentScreen(),
+          WeaponScreen(),
+          MapScreen(),
         ]),
       ),
     );

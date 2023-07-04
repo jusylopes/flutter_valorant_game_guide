@@ -9,23 +9,25 @@ class AgentCachedNetworkImage extends StatelessWidget {
     super.key,
     required this.agent,
     required this.sizeImage,
+    required this.paddingImage,
   });
 
   final Agent agent;
   final double sizeImage;
+  final EdgeInsets paddingImage;
 
   @override
   Widget build(BuildContext context) {
-    return Hero(
-      tag: agent.uuid,
-      child: CachedNetworkImage(
-        alignment: Alignment.bottomRight,
-        imageUrl: agent.fullPortrait ?? ValorantStrings.noImage,
-        progressIndicatorBuilder: (context, url, downloadProgress) =>
-            const AgentCircularProgressIndicator(),
-        errorWidget: (context, url, error) => const Icon(Icons.error),
-        imageBuilder: (context, imageProvider) {
-          return Container(
+    return CachedNetworkImage(
+      alignment: Alignment.bottomRight,
+      imageUrl: agent.fullPortrait ?? '',
+      progressIndicatorBuilder: (context, url, downloadProgress) =>
+          const AgentCircularProgressIndicator(),
+      errorWidget: (context, url, error) => const Icon(Icons.error),
+      imageBuilder: (context, imageProvider) {
+        return Padding(
+          padding: paddingImage,
+          child: Container(
             height: sizeImage,
             decoration: BoxDecoration(
               image: DecorationImage(
@@ -33,9 +35,9 @@ class AgentCachedNetworkImage extends StatelessWidget {
                 fit: BoxFit.cover,
               ),
             ),
-          );
-        },
-      ),
+          ),
+        );
+      },
     );
   }
 }
