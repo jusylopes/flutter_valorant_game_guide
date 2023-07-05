@@ -1,12 +1,34 @@
-import 'package:flutter_valorant_game_guide/models/agent.dart';
+import 'package:flutter_valorant_game_guide/models/agent_model.dart';
+import 'package:flutter_valorant_game_guide/models/map_model.dart';
+import 'package:flutter_valorant_game_guide/models/weapon_model.dart';
 
-abstract class IAgentAdapter {
-  List<Agent> fromJson(dynamic json);
+abstract class IAdapter<T> {
+  List<T> fromJson(dynamic json);
 }
 
-class AgentAdapter extends IAgentAdapter {
+class AgentAdapter implements IAdapter<AgentModel> {
   @override
-  List<Agent> fromJson(dynamic json) {
-    return json['data'].map<Agent>((data) => Agent.fromJson(data)).toList();
+  List<AgentModel> fromJson(dynamic json) {
+    return json['data']
+        .map<AgentModel>((data) => AgentModel.fromJson(data))
+        .toList();
+  }
+}
+
+class MapAdapter extends IAdapter<MapModel> {
+  @override
+  List<MapModel> fromJson(dynamic json) {
+    return json['data']
+        .map<MapModel>((data) => MapModel.fromJson(data))
+        .toList();
+  }
+}
+
+class WeaponAdapter extends IAdapter<WeaponModel> {
+  @override
+  List<WeaponModel> fromJson(dynamic json) {
+    return json['data']
+        .map<WeaponModel>((data) => WeaponModel.fromJson(data))
+        .toList();
   }
 }
