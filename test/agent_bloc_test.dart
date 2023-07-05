@@ -1,8 +1,8 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_valorant_game_guide/blocs/agent/agent_bloc.dart';
 import 'package:flutter_valorant_game_guide/blocs/agent/agent_event.dart';
-import 'package:flutter_valorant_game_guide/models/agent.dart';
-import 'package:flutter_valorant_game_guide/models/enum/agent_status.dart';
+import 'package:flutter_valorant_game_guide/models/agent_model.dart';
+import 'package:flutter_valorant_game_guide/models/enum/bloc_status.dart';
 import 'package:flutter_valorant_game_guide/repositories/repository.dart';
 import 'package:mocktail/mocktail.dart';
 
@@ -23,7 +23,7 @@ void main() {
     test(
         'the initial state for the AgentBloc is AgentState (status: AgentStatus.initial, agents: [])',
         () {
-      expect(agentBloc.state.status, AgentStatus.initial);
+      expect(agentBloc.state.status, BlocStatus.initial);
       expect(agentBloc.state.agents, []);
     });
 
@@ -34,7 +34,7 @@ void main() {
 
       await Future.delayed(Duration.zero);
 
-      expect(agentBloc.state.status, AgentStatus.success);
+      expect(agentBloc.state.status, BlocStatus.success);
       expect(agentBloc.state.agents, agents);
     });
 
@@ -42,8 +42,8 @@ void main() {
   });
 }
 
-final agents = <Agent>[
-  Agent(
+final agents = <AgentModel>[
+  AgentModel(
       uuid: '1',
       displayName: 'agent1',
       description: 'description',
