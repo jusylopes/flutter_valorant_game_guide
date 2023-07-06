@@ -7,6 +7,10 @@ class AgentErrorMessage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(child: Text(errorMessage));
+    return Text(
+      textAlign: TextAlign.center,
+      errorMessage,
+      style: Theme.of(context).textTheme.titleLarge,
+    );
   }
 }
