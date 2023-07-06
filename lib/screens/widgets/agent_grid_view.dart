@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_valorant_game_guide/models/agent.dart';
+import 'package:flutter_valorant_game_guide/models/agent_model.dart';
 import 'package:flutter_valorant_game_guide/resources/colors.dart';
 import 'package:flutter_valorant_game_guide/screens/agent_detail_screen.dart';
 import 'package:flutter_valorant_game_guide/screens/widgets/agent_cached_network_image.dart';
@@ -7,7 +7,7 @@ import 'package:flutter_valorant_game_guide/screens/widgets/agent_cached_network
 class AgentGridView extends StatelessWidget {
   const AgentGridView({super.key, required this.agent});
 
-  final Agent agent;
+  final AgentModel agent;
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +27,7 @@ class AgentGridView extends StatelessWidget {
             height: 180,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(25),
-              color: ValorantColors.primaryColorBackground,
+              color: ValorantColors.secondaryColor.withOpacity(0.9),
             ),
           ),
           Hero(
@@ -45,7 +45,7 @@ class AgentGridView extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  agent.role != null ? agent.role!.displayName : '',
+                  agent.role?.displayName.toString() ?? '',
                   style: Theme.of(context).textTheme.labelSmall,
                   overflow: TextOverflow.fade,
                   maxLines: 1,
