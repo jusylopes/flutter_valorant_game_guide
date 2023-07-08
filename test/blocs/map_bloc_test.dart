@@ -23,14 +23,14 @@ void main() {
     });
 
     test(
-        'the initial state for the MapBloc is MapState (status: MapStatus.initial, Maps: [])',
+        'the initial state for the MapBloc is MapState (status: MapStatus.initial, maps: [])',
         () {
       expect(mapBloc.state.status, BlocStatus.initial);
       expect(mapBloc.state.maps, []);
     });
 
     test(
-        'the success state for the MapBloc is MapState (status: MapStatus.success, Maps: Maps)',
+        'the success state for the MapBloc is MapState (status: MapStatus.success, maps: maps)',
         () async {
       mapBloc.add(MapLoaded());
 

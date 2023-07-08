@@ -1,11 +1,10 @@
 import 'package:dio/dio.dart';
-import 'package:flutter_valorant_game_guide/repositories/adapters/_adapter.dart';
 
 class Repository<T> {
   Repository({required this.dio, required this.adapter});
 
   final Dio dio;
-  final IAdapter<T> adapter;
+  final adapter;
 
   static const String _baseUrl = 'https://valorant-api.com/v1';
 
