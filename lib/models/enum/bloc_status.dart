@@ -1,4 +1,4 @@
-enum AgentStatus {
+enum BlocStatus {
   initial,
   loading,
   success,

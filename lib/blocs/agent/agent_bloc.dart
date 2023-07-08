@@ -1,13 +1,13 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_valorant_game_guide/blocs/agent/agent_event.dart';
 import 'package:flutter_valorant_game_guide/blocs/agent/agent_state.dart';
-import 'package:flutter_valorant_game_guide/models/agent.dart';
-import 'package:flutter_valorant_game_guide/models/enum/agent_status.dart';
+import 'package:flutter_valorant_game_guide/models/enum/bloc_status.dart';
 import 'package:flutter_valorant_game_guide/repositories/repository.dart';
+import 'package:flutter_valorant_game_guide/resources/strings.dart';
 
 class AgentBloc extends Bloc<AgentEvent, AgentState> {
   AgentBloc({required this.repository})
-      : super(const AgentState(status: AgentStatus.initial, agents: [])) {
+      : super(const AgentState(status: BlocStatus.initial, agents: [])) {
     on<AgentLoaded>(_onAgentLoaded);
   }
 
@@ -17,18 +17,20 @@ class AgentBloc extends Bloc<AgentEvent, AgentState> {
     AgentLoaded event,
     Emitter<AgentState> emit,
   ) async {
-    emit(state.copyWith(status: AgentStatus.loading));
+    emit(state.copyWith(status: BlocStatus.loading));
 
     try {
-      final List<Agent> agents = await repository.getAgents();
+      final List agents =
+          await repository.getData(endpoint: ValorantStrings.endpointAgent);
+
       emit(state.copyWith(
-        status: AgentStatus.success,
+        status: BlocStatus.success,
         agents: agents,
       ));
     } on Exception {
       emit(state.copyWith(
-        status: AgentStatus.error,
-        errorMessage: 'erroooo',
+        status: BlocStatus.error,
+        errorMessage: ValorantStrings.errorLoadingMessage,
       ));
     }
   }

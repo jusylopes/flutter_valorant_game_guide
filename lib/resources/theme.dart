@@ -21,8 +21,8 @@ class ValorantTheme {
           ),
           titleMedium: const TextStyle(
             fontWeight: FontWeight.w600,
-            fontSize: 12,
-            letterSpacing: 3.0,
+            fontSize: 14,
+            // letterSpacing: 3.0,
             color: Colors.white,
           ),
           bodyLarge: TextStyle(
@@ -41,7 +41,7 @@ class ValorantTheme {
             fontFamily: ValorantStrings.productSansFont,
           ),
           labelMedium: const TextStyle(
-            fontSize: 20,
+            fontSize: 22,
             letterSpacing: 2.0,
             color: Colors.white,
           ),
@@ -49,9 +49,10 @@ class ValorantTheme {
               letterSpacing: 2.0,
               fontSize: 33,
               color: Colors.white.withOpacity(0.7)),
-          labelSmall: const TextStyle(
+          labelSmall: TextStyle(
             fontSize: 12,
-            color: Colors.grey,
+            color: Colors.white,
+            fontFamily: ValorantStrings.productSansFont,
           ),
         ),
       );

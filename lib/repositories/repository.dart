@@ -1,21 +1,20 @@
 import 'package:dio/dio.dart';
-import 'package:flutter_valorant_game_guide/models/agent.dart';
-import 'package:flutter_valorant_game_guide/repositories/adapters/agent_adapter.dart';
+import 'package:flutter_valorant_game_guide/repositories/adapters/_adapter.dart';
 
-class Repository {
-  Repository({required this.dio, required this.agentAdapter});
+class Repository<T> {
+  Repository({required this.dio, required this.adapter});
 
   final Dio dio;
-  final AgentAdapter agentAdapter;
+  final IAdapter<T> adapter;
 
-  static const String _baseApi = 'https://valorant-api.com/v1';
+  static const String _baseUrl = 'https://valorant-api.com/v1';
 
-  Future<List<Agent>> getAgents() async {
+  Future<List<T>> getData({required String endpoint}) async {
     try {
-      Response response = await dio.get('$_baseApi/agents');
+      Response response = await dio.get('$_baseUrl/$endpoint');
       final data = response.data;
 
-      return agentAdapter.fromJson(data);
+      return adapter.fromJson(data);
     } catch (e) {
       rethrow;
     }

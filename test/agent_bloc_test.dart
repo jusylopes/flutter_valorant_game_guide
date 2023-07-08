@@ -4,6 +4,7 @@ import 'package:flutter_valorant_game_guide/blocs/agent/agent_event.dart';
 import 'package:flutter_valorant_game_guide/models/agent_model.dart';
 import 'package:flutter_valorant_game_guide/models/enum/bloc_status.dart';
 import 'package:flutter_valorant_game_guide/repositories/repository.dart';
+import 'package:flutter_valorant_game_guide/resources/strings.dart';
 import 'package:mocktail/mocktail.dart';
 
 class MockRepository extends Mock implements Repository {}
@@ -16,7 +17,7 @@ void main() {
     setUp(() {
       mockRepository = MockRepository();
       agentBloc = AgentBloc(repository: mockRepository);
-      when(() => mockRepository.getAgents())
+      when(() => mockRepository.getData(endpoint: ValorantStrings.endpointAgent))
           .thenAnswer((_) async => Future.value(agents));
     });
 

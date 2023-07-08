@@ -2,8 +2,14 @@ class ValorantStrings {
   static const appName = 'VALORANT GUIDE';
   static String appLogo = 'assets/images/valorant-logo.png';
   static String noImage = 'https://placehold.co/50x50?text=No+image.png';
-  static const errorMessage = 'erro';
+  static const errorLoadingMessage = 'Error loading data..';
 
   static String productSansFont = 'ProductSans';
   static String rubikFont = 'Rubik';
+  static String imageUrlNotFound =
+      'https://raw.githubusercontent.com/jusylopes/flutter-valorant-game-guide/main/screenshots/not-found.png';
+
+  static String endpointAgent = 'agents';
+  static String endpointWeapon = 'weapons';
+  static String endpointMaps = 'maps';
 }

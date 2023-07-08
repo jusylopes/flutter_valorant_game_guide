@@ -1,9 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_valorant_game_guide/models/agent.dart';
+import 'package:flutter_valorant_game_guide/models/agent_model.dart';
 import 'package:flutter_valorant_game_guide/resources/colors.dart';
-import 'package:flutter_valorant_game_guide/resources/strings.dart';
-import 'package:flutter_valorant_game_guide/screens/widgets/agent_cached_network_image.dart';
 import 'package:flutter_valorant_game_guide/screens/widgets/agent_circular_progress_indicator.dart';
 
 class AgentDetailAppBar extends StatelessWidget {
@@ -13,14 +11,14 @@ class AgentDetailAppBar extends StatelessWidget {
     required this.maxHeight,
   });
 
-  final Agent agent;
+  final AgentModel agent;
   final double maxHeight;
 
   @override
   Widget build(BuildContext context) {
     return Stack(children: [
       CachedNetworkImage(
-          imageUrl: agent.killfeedPortrait ?? ValorantStrings.noImage,
+          imageUrl: agent.killfeedPortrait,
           progressIndicatorBuilder: (context, url, downloadProgress) =>
               SizedBox(
                   width: double.infinity,
@@ -58,7 +56,7 @@ class AgentDetailAppBar extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        agent.role != null ? agent.role!.displayName : '',
+                        agent.role?.displayName.toString() ?? '',
                         style: Theme.of(context).textTheme.labelSmall,
                       ),
                       Text(

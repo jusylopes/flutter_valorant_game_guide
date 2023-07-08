@@ -2,7 +2,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_valorant_game_guide/models/agent_model.dart';
 import 'package:flutter_valorant_game_guide/models/map_model.dart';
 import 'package:flutter_valorant_game_guide/models/weapon_model.dart';
-import 'package:flutter_valorant_game_guide/repositories/adapters/agent_adapter.dart';
+import 'package:flutter_valorant_game_guide/repositories/adapters/adapter_interface.dart';
 import 'mocks/mock_data.dart';
 
 void main() {
