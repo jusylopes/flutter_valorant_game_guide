@@ -15,7 +15,7 @@ class AgentAdapter implements IAdapter<AgentModel> {
   }
 }
 
-class MapAdapter extends IAdapter<MapModel> {
+class MapAdapter implements IAdapter<MapModel> {
   @override
   List<MapModel> fromJson(dynamic json) {
     return json['data']
@@ -24,7 +24,7 @@ class MapAdapter extends IAdapter<MapModel> {
   }
 }
 
-class WeaponAdapter extends IAdapter<WeaponModel> {
+class WeaponAdapter implements IAdapter<WeaponModel> {
   @override
   List<WeaponModel> fromJson(dynamic json) {
     return json['data']

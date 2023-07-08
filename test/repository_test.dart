@@ -1,7 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_valorant_game_guide/models/agent_model.dart';
-import 'package:flutter_valorant_game_guide/repositories/adapters/_adapter.dart';
+import 'package:flutter_valorant_game_guide/repositories/adapters/adapter_interface.dart';
+
 import 'package:flutter_valorant_game_guide/repositories/repository.dart';
 import 'package:flutter_valorant_game_guide/resources/strings.dart';
 import 'package:mocktail/mocktail.dart';
