@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class AgentErrorMessage extends StatelessWidget {
-  const AgentErrorMessage({super.key, required this.errorMessage});
+class ErrorMessage extends StatelessWidget {
+  const ErrorMessage({super.key, required this.errorMessage});
 
   final String errorMessage;
 

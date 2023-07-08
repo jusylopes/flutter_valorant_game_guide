@@ -5,7 +5,7 @@ import 'package:flutter_valorant_game_guide/blocs/agent/agent_state.dart';
 import 'package:flutter_valorant_game_guide/models/agent_model.dart';
 import 'package:flutter_valorant_game_guide/models/enum/bloc_status.dart';
 import 'package:flutter_valorant_game_guide/screens/widgets/agent_circular_progress_indicator.dart';
-import 'package:flutter_valorant_game_guide/screens/widgets/agent_error_message.dart';
+import 'package:flutter_valorant_game_guide/screens/widgets/error_message.dart';
 import 'package:flutter_valorant_game_guide/screens/widgets/agent_grid_view.dart';
 
 class AgentScreen extends StatefulWidget {
@@ -43,7 +43,7 @@ class _AgentScreenState extends State<AgentScreen>
                 },
               );
             case BlocStatus.error:
-              return AgentErrorMessage(
+              return ErrorMessage(
                 errorMessage: state.errorMessage!,
               );
           }
