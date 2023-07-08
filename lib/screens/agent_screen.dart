@@ -29,7 +29,6 @@ class _AgentScreenState extends State<AgentScreen>
               return const AgentCircularProgressIndicator();
             case BlocStatus.success:
               return GridView.builder(
-                
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 itemCount: state.agents.length,
                 gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
