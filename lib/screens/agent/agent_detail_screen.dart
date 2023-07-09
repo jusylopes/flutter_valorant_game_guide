@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_valorant_game_guide/models/agent_model.dart';
-import 'package:flutter_valorant_game_guide/screens/widgets/abilities_list_view.dart';
-import 'package:flutter_valorant_game_guide/screens/widgets/agent_cached_network_image.dart';
-import 'package:flutter_valorant_game_guide/screens/widgets/agent_detail_app_bar.dart';
+import 'package:flutter_valorant_game_guide/screens/agent/abilities_list_view.dart';
+import 'package:flutter_valorant_game_guide/screens/agent/agent_cached_network_image.dart';
+import 'package:flutter_valorant_game_guide/screens/agent/agent_detail_app_bar.dart';
 import 'package:flutter_valorant_game_guide/screens/widgets/back_button_screen.dart';
 
 class AgentDetailScreen extends StatelessWidget {

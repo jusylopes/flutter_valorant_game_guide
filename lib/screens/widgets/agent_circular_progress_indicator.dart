@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_valorant_game_guide/resources/colors.dart';
 
-class AgentCircularProgressIndicator extends StatelessWidget {
-  const AgentCircularProgressIndicator({super.key});
+class CircularProgressIndicatorApp extends StatelessWidget {
+  const CircularProgressIndicatorApp({super.key});
 
   @override
   Widget build(BuildContext context) {

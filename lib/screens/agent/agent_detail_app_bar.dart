@@ -23,7 +23,7 @@ class AgentDetailAppBar extends StatelessWidget {
               SizedBox(
                   width: double.infinity,
                   height: maxHeight * 0.4,
-                  child: const AgentCircularProgressIndicator()),
+                  child: const CircularProgressIndicatorApp()),
           errorWidget: (context, url, error) => const Icon(Icons.error),
           imageBuilder: (context, imageProvider) {
             return Container(

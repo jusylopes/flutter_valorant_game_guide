@@ -6,7 +6,7 @@ import 'package:flutter_valorant_game_guide/models/agent_model.dart';
 import 'package:flutter_valorant_game_guide/models/enum/bloc_status.dart';
 import 'package:flutter_valorant_game_guide/screens/widgets/agent_circular_progress_indicator.dart';
 import 'package:flutter_valorant_game_guide/screens/widgets/error_message.dart';
-import 'package:flutter_valorant_game_guide/screens/widgets/agent_grid_view.dart';
+import 'package:flutter_valorant_game_guide/screens/agent/agent_grid_view.dart';
 
 class AgentScreen extends StatefulWidget {
   const AgentScreen({super.key});
@@ -26,7 +26,7 @@ class _AgentScreenState extends State<AgentScreen>
           switch (state.status) {
             case BlocStatus.initial:
             case BlocStatus.loading:
-              return const AgentCircularProgressIndicator();
+              return const CircularProgressIndicatorApp();
             case BlocStatus.success:
               return GridView.builder(
                 padding: const EdgeInsets.symmetric(horizontal: 20),

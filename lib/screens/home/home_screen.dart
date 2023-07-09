@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_valorant_game_guide/resources/colors.dart';
 import 'package:flutter_valorant_game_guide/resources/strings.dart';
-import 'package:flutter_valorant_game_guide/screens/agent_screen.dart';
-import 'package:flutter_valorant_game_guide/screens/map_screen.dart';
-import 'package:flutter_valorant_game_guide/screens/weapon_screen.dart';
+import 'package:flutter_valorant_game_guide/screens/agent/agent_screen.dart';
+import 'package:flutter_valorant_game_guide/screens/map/map_screen.dart';
+import 'package:flutter_valorant_game_guide/screens/weapon/weapon_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});

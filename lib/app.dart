@@ -11,7 +11,7 @@ import 'package:flutter_valorant_game_guide/repositories/adapters/adapter_interf
 import 'package:flutter_valorant_game_guide/repositories/repository.dart';
 import 'package:flutter_valorant_game_guide/resources/strings.dart';
 import 'package:flutter_valorant_game_guide/resources/theme.dart';
-import 'package:flutter_valorant_game_guide/screens/splash_screen.dart';
+import 'package:flutter_valorant_game_guide/screens/splash/splash_screen.dart';
 
 class App extends StatelessWidget {
   const App({super.key});

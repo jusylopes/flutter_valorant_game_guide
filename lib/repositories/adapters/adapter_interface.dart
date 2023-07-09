@@ -32,3 +32,5 @@ class WeaponAdapter implements IAdapter<WeaponModel> {
         .toList();
   }
 }
+
+

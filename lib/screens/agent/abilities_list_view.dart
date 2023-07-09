@@ -31,7 +31,7 @@ class AbilitiesListView extends StatelessWidget {
                 child: CachedNetworkImage(
                   imageUrl: agentAbilities.displayIcon ?? '',
                   progressIndicatorBuilder: (context, url, downloadProgress) =>
-                      const AgentCircularProgressIndicator(),
+                      const CircularProgressIndicatorApp(),
                   errorWidget: (context, url, error) => const Icon(Icons.error),
                 ),
               ),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_valorant_game_guide/resources/colors.dart';
 import 'package:flutter_valorant_game_guide/resources/strings.dart';
-import 'package:flutter_valorant_game_guide/screens/home_screen.dart';
+import 'package:flutter_valorant_game_guide/screens/home/home_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});

@@ -4,10 +4,9 @@ import 'package:flutter_valorant_game_guide/blocs/map/map_bloc.dart';
 import 'package:flutter_valorant_game_guide/blocs/map/map_state.dart';
 import 'package:flutter_valorant_game_guide/models/enum/bloc_status.dart';
 import 'package:flutter_valorant_game_guide/models/map_model.dart';
+import 'package:flutter_valorant_game_guide/screens/map/map_list_view.dart';
 import 'package:flutter_valorant_game_guide/screens/widgets/agent_circular_progress_indicator.dart';
 import 'package:flutter_valorant_game_guide/screens/widgets/error_message.dart';
-
-
 
 class MapScreen extends StatefulWidget {
   const MapScreen({super.key});
@@ -26,15 +25,18 @@ class _MapScreenState extends State<MapScreen>
         switch (state.status) {
           case BlocStatus.initial:
           case BlocStatus.loading:
-            return const AgentCircularProgressIndicator();
+            return const CircularProgressIndicatorApp();
           case BlocStatus.success:
-            return ListView.builder(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
+            return ListView.separated(
+              padding: const EdgeInsets.all(20),
+              separatorBuilder: (context, index) => const SizedBox(
+                height: 12,
+              ),
               itemCount: state.maps.length,
               itemBuilder: (_, index) {
-                final MapModel weapon = state.maps[index];
+                final MapModel map = state.maps[index];
 
-                return Text(weapon.displayName);
+                return MapListView(map: map);
               },
             );
           case BlocStatus.error:
