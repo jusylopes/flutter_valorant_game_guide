@@ -9,12 +9,10 @@ class AgentCachedNetworkImage extends StatelessWidget {
     super.key,
     required this.agent,
     required this.sizeImage,
-    required this.paddingImage,
   });
 
   final AgentModel agent;
   final double sizeImage;
-  final EdgeInsets paddingImage;
 
   @override
   Widget build(BuildContext context) {
@@ -24,8 +22,8 @@ class AgentCachedNetworkImage extends StatelessWidget {
       progressIndicatorBuilder: (context, url, downloadProgress) =>
           const CircularProgressIndicatorApp(),
       imageBuilder: (context, imageProvider) {
-        return Padding(
-          padding: paddingImage,
+        return Align(
+          alignment: Alignment.bottomRight,
           child: Container(
             height: sizeImage,
             decoration: BoxDecoration(

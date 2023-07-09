@@ -15,25 +15,22 @@ class WeaponListView extends StatelessWidget {
     return Stack(
       alignment: Alignment.bottomLeft,
       children: [
-        CachedNetworkImage(
-          alignment: Alignment.center,
-          imageUrl: weapon.displayIcon,
-          progressIndicatorBuilder: (context, url, downloadProgress) =>
-              const Center(child: CircularProgressIndicatorApp()),
-          imageBuilder: (context, imageProvider) {
-            return Container(
-              height: 80,
-              width: double.infinity,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                color: ValorantColors.primaryColorBackground,
-                image: DecorationImage(
-                  image: imageProvider,
-                  scale: 2.5,
-                ),
-              ),
-            );
-          },
+        Container(
+          height: 80,
+          width: double.infinity,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20),
+            color: ValorantColors.primaryColorBackground,
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(12.0),
+            child: CachedNetworkImage(
+              alignment: Alignment.center,
+              imageUrl: weapon.displayIcon,
+              progressIndicatorBuilder: (context, url, downloadProgress) =>
+                  const CircularProgressIndicatorApp(),
+            ),
+          ),
         ),
         Padding(
           padding: const EdgeInsets.all(20.0),

@@ -31,10 +31,12 @@ class AgentGridView extends StatelessWidget {
           ),
           Hero(
             tag: agent.uuid,
-            child: AgentCachedNetworkImage(
-              agent: agent,
-              sizeImage: 250,
-              paddingImage: const EdgeInsets.only(left: 45),
+            child: Padding(
+              padding: const EdgeInsets.only(left: 30),
+              child: AgentCachedNetworkImage(
+                agent: agent,
+                sizeImage: 250,
+              ),
             ),
           ),
           Padding(

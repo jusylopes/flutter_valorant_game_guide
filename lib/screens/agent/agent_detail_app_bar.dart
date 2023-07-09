@@ -16,59 +16,57 @@ class AgentDetailAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(children: [
-      CachedNetworkImage(
-          imageUrl: agent.killfeedPortrait,
-          progressIndicatorBuilder: (context, url, downloadProgress) =>
-              SizedBox(
-                  width: double.infinity,
-                  height: maxHeight * 0.4,
-                  child: const CircularProgressIndicatorApp()),
-          errorWidget: (context, url, error) => const Icon(Icons.error),
-          imageBuilder: (context, imageProvider) {
-            return Container(
-              width: double.infinity,
-              height: maxHeight * 0.4,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: imageProvider,
-                  fit: BoxFit.cover,
-                  colorFilter: const ColorFilter.mode(
-                      Color.fromRGBO(255, 255, 255, 0.1), BlendMode.modulate),
-                ),
+    return CachedNetworkImage(
+        imageUrl: agent.killfeedPortrait,
+        progressIndicatorBuilder: (context, url, downloadProgress) =>
+            SizedBox(
+                width: double.infinity,
+                height: maxHeight * 0.4,
+                child: const CircularProgressIndicatorApp()),
+        errorWidget: (context, url, error) => const Icon(Icons.error),
+        imageBuilder: (context, imageProvider) {
+          return Container(
+            width: double.infinity,
+            height: maxHeight * 0.4,
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: imageProvider,
+                fit: BoxFit.cover,
+                colorFilter: const ColorFilter.mode(
+                    Color.fromRGBO(255, 255, 255, 0.1), BlendMode.modulate),
               ),
-              foregroundDecoration: const BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [
-                    ValorantColors.primaryColor,
-                    Colors.transparent,
+            ),
+            foregroundDecoration: const BoxDecoration(
+              gradient: LinearGradient(
+                colors: [
+                  ValorantColors.primaryColor,
+                  Colors.transparent,
+                ],
+                begin: Alignment.bottomCenter,
+                end: Alignment.center,
+                stops: [0, 0.6],
+              ),
+            ),
+            child: Stack(children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 30),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      agent.role?.displayName.toString() ?? '',
+                      style: Theme.of(context).textTheme.labelSmall,
+                    ),
+                    Text(
+                      agent.displayName.toUpperCase(),
+                      style: Theme.of(context).textTheme.labelLarge,
+                    ),
                   ],
-                  begin: Alignment.bottomCenter,
-                  end: Alignment.center,
-                  stops: [0, 0.6],
                 ),
               ),
-              child: Stack(children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: 30),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        agent.role?.displayName.toString() ?? '',
-                        style: Theme.of(context).textTheme.labelSmall,
-                      ),
-                      Text(
-                        agent.displayName.toUpperCase(),
-                        style: Theme.of(context).textTheme.labelLarge,
-                      ),
-                    ],
-                  ),
-                ),
-              ]),
-            );
-          }),
-    ]);
+            ]),
+          );
+        });
   }
 }
