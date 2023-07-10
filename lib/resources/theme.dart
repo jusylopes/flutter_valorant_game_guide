@@ -22,7 +22,6 @@ class ValorantTheme {
           titleMedium: const TextStyle(
             fontWeight: FontWeight.w600,
             fontSize: 14,
-            // letterSpacing: 3.0,
             color: Colors.white,
           ),
           bodyLarge: TextStyle(
@@ -48,7 +47,7 @@ class ValorantTheme {
           labelLarge: TextStyle(
               letterSpacing: 2.0,
               fontSize: 33,
-              color: Colors.white.withOpacity(0.7)),
+              color: Colors.white.withOpacity(0.9)),
           labelSmall: TextStyle(
             fontSize: 12,
             color: Colors.white,

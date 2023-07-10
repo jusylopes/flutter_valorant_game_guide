@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_valorant_game_guide/models/agent_model.dart';
-import 'package:flutter_valorant_game_guide/screens/agent/abilities_list_view.dart';
-import 'package:flutter_valorant_game_guide/screens/agent/agent_cached_network_image.dart';
-import 'package:flutter_valorant_game_guide/screens/agent/agent_detail_app_bar.dart';
-import 'package:flutter_valorant_game_guide/screens/widgets/back_button_screen.dart';
+import 'package:flutter_valorant_game_guide/screens/agent/widgets_agent/ability_card.dart';
+import 'package:flutter_valorant_game_guide/screens/agent/widgets_agent/agent_cached_network_image.dart';
+import 'package:flutter_valorant_game_guide/screens/agent/widgets_agent/agent_detail_app_bar.dart';
+import 'package:flutter_valorant_game_guide/screens/widgets/back_button_app.dart';
 
 class AgentDetailScreen extends StatelessWidget {
   const AgentDetailScreen({super.key, required this.agent});
@@ -56,18 +56,18 @@ class AgentDetailScreen extends StatelessWidget {
                 Hero(
                   tag: agent.uuid,
                   child: Padding(
-                     padding: const EdgeInsets.only(left: 200),
+                    padding: const EdgeInsets.only(left: 200),
                     child: AgentCachedNetworkImage(
                       agent: agent,
                       sizeImage: maxHeight / 2.1,
                     ),
                   ),
                 ),
-                const BackButtonScreen(),
+                const BackButtonApp(),
               ],
             ),
           ),
-          AbilitiesListView(agent: agent),
+          AbilityCard(agent: agent),
         ],
       );
     }));

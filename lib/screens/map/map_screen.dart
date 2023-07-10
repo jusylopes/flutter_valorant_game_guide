@@ -4,9 +4,9 @@ import 'package:flutter_valorant_game_guide/blocs/map/map_bloc.dart';
 import 'package:flutter_valorant_game_guide/blocs/map/map_state.dart';
 import 'package:flutter_valorant_game_guide/models/enum/bloc_status.dart';
 import 'package:flutter_valorant_game_guide/models/map_model.dart';
-import 'package:flutter_valorant_game_guide/screens/map/map_list_view.dart';
-import 'package:flutter_valorant_game_guide/screens/widgets/agent_circular_progress_indicator.dart';
-import 'package:flutter_valorant_game_guide/screens/widgets/error_message.dart';
+import 'package:flutter_valorant_game_guide/screens/map/widgets_map/map_card.dart';
+import 'package:flutter_valorant_game_guide/screens/widgets/circular_progress_indicator_app.dart';
+import 'package:flutter_valorant_game_guide/screens/widgets/error_message_app.dart';
 
 class MapScreen extends StatefulWidget {
   const MapScreen({super.key});
@@ -36,11 +36,11 @@ class _MapScreenState extends State<MapScreen>
               itemBuilder: (_, index) {
                 final MapModel map = state.maps[index];
 
-                return MapListView(map: map);
+                return MapCard(map: map);
               },
             );
           case BlocStatus.error:
-            return ErrorMessage(
+            return ErrorMessageApp(
               errorMessage: state.errorMessage!,
             );
         }
