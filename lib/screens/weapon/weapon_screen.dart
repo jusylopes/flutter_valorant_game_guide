@@ -4,9 +4,9 @@ import 'package:flutter_valorant_game_guide/blocs/weapon/weapon_bloc.dart';
 import 'package:flutter_valorant_game_guide/blocs/weapon/weapon_state.dart';
 import 'package:flutter_valorant_game_guide/models/enum/bloc_status.dart';
 import 'package:flutter_valorant_game_guide/models/weapon_model.dart';
-import 'package:flutter_valorant_game_guide/screens/widgets/agent_circular_progress_indicator.dart';
-import 'package:flutter_valorant_game_guide/screens/widgets/error_message.dart';
-import 'package:flutter_valorant_game_guide/screens/weapon/weapon_list_view.dart';
+import 'package:flutter_valorant_game_guide/screens/widgets/circular_progress_indicator_app.dart';
+import 'package:flutter_valorant_game_guide/screens/widgets/error_message_app.dart';
+import 'package:flutter_valorant_game_guide/screens/weapon/widgets_weapon/weapon_card.dart';
 
 class WeaponScreen extends StatefulWidget {
   const WeaponScreen({super.key});
@@ -36,11 +36,11 @@ class _WeaponScreenState extends State<WeaponScreen>
               itemBuilder: (_, index) {
                 final WeaponModel weapon = state.weapons[index];
 
-                return WeaponListView(weapon: weapon);
+                return WeaponCard(weapon: weapon);
               },
             );
           case BlocStatus.error:
-            return ErrorMessage(
+            return ErrorMessageApp(
               errorMessage: state.errorMessage!,
             );
         }
