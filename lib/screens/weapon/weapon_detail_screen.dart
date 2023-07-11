@@ -56,12 +56,70 @@ class WeaponDetailScreen extends StatelessWidget {
                       [],
                 ),
               ]),
-              const ListTile()
+              const SizedBox(height: 25),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Column(
+                  children: <Widget>[
+                    WeaponDamageRow(
+                      label: 'Wall Damage',
+                      titleRow: weapon.weaponStats?.wallPenetration.replaceAll(
+                              'EWallPenetrationDisplayType::', '') ??
+                          '',
+                    ),
+                    WeaponDamageRow(
+                      label: 'Cost',
+                      titleRow: weapon.shopData?.cost.toString() ?? '',
+                    ),
+                    WeaponDamageRow(
+                      label: 'Fire Rate',
+                      titleRow:
+                          '${weapon.weaponStats?.fireRate.toString()}/sec',
+                    ),
+                    WeaponDamageRow(
+                        label: 'Reload Speed',
+                        titleRow:
+                            '${weapon.weaponStats?.reloadTimeSeconds.toString()}/sec'),
+                    WeaponDamageRow(
+                      label: 'Magazine Size',
+                      titleRow:
+                          weapon.weaponStats?.magazineSize.toString() ?? '',
+                    ),
+                  ],
+                ),
+              )
             ],
           ),
           const BackButtonApp(),
         ],
       );
     }));
+  }
+}
+
+class WeaponDamageRow extends StatelessWidget {
+  const WeaponDamageRow({
+    super.key,
+    required this.label,
+    required this.titleRow,
+  });
+
+  final String label;
+  final String titleRow;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 8),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: <Widget>[
+          Text(label, style: Theme.of(context).textTheme.labelSmall),
+          Text(titleRow,
+              style: Theme.of(context).textTheme.labelMedium,
+              overflow: TextOverflow.visible),
+        ],
+      ),
+    );
   }
 }
