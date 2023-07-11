@@ -8,11 +8,11 @@ O Aplicativo consome a API [Valorant API
 
 ## Layout 
 <p>
+<img src="screenshots/gif_app.gif" width="18.5%">
 <img src="screenshots/Screenshot_1.png" width="19%">
 <img src="screenshots/Screenshot_2.png" width="19%">
 <img src="screenshots/Screenshot_3.png" width="19%">
 <img src="screenshots/Screenshot_4.png" width="19%">
-
 </p>
 
 
