@@ -20,7 +20,7 @@ class AbilityCard extends StatelessWidget {
         final Ability agentAbilities = agent.abilities[index];
 
         return Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 8),
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
           child: Card(
             elevation: 0,
             shape:
