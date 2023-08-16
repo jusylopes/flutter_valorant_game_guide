@@ -3,7 +3,6 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_valorant_game_guide/models/agent_model.dart';
 import 'package:flutter_valorant_game_guide/repositories/adapters/adapter_interface.dart';
 import 'package:flutter_valorant_game_guide/repositories/repository.dart';
-import 'package:flutter_valorant_game_guide/resources/strings.dart';
 import 'package:mocktail/mocktail.dart';
 
 import 'mocks/mock_data.dart';
@@ -33,7 +32,7 @@ void main() {
     group('getAgents', () {
       test('getAgents should return Agent', () async {
         final agents =
-            await repository.getData(endpoint: ValorantStrings.endpointAgent);
+            await repository.getData(endpoint: '');
         final AgentModel agent = agents[0];
 
         expect(agent, isInstanceOf<AgentModel>());

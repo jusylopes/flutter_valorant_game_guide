@@ -46,11 +46,9 @@ void main() {
 
 final weapons = <WeaponModel>[
   WeaponModel(
-      uuid: 'uuid',
-      displayName: 'displayName',
-      category: 'category',
-      defaultSkinUuid: 'defaultSkinUuid',
-      displayIcon: 'displayIcon',
-      killStreamIcon: 'killStreamIcon',
-      assetPath: 'assetPath'),
+    uuid: 'uuid',
+    displayName: 'displayName',
+    category: 'category',
+    displayIcon: 'displayIcon',
+  ),
 ];

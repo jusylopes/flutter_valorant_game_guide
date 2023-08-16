@@ -30,8 +30,7 @@ void main() {
       final List<MapModel> maps = mapAdapter.fromJson(MockData.jsonMockMaps);
       final MapModel map = maps[0];
 
-      expect(map.displayName, "Ascent");
-      expect(map.coordinates, "45°26'BF'N,12°20'Q'E");
+      expect(map.displayName, "Ascent");      
     });
 
     test('should converting API data to Weapon', () async {

@@ -17,7 +17,8 @@ void main() {
     setUp(() {
       mockRepository = MockRepository();
       agentBloc = AgentBloc(repository: mockRepository);
-      when(() => mockRepository.getData(endpoint: ValorantStrings.endpointAgent))
+      when(() =>
+              mockRepository.getData(endpoint: ValorantStrings.endpointAgent))
           .thenAnswer((_) async => Future.value(agents));
     });
 
@@ -45,26 +46,17 @@ void main() {
 
 final agents = <AgentModel>[
   AgentModel(
-      uuid: '1',
-      displayName: 'agent1',
-      description: 'description',
-      developerName: 'developerName',
-      displayIcon: 'displayIcon',
-      displayIconSmall: 'displayIconSmall',
-      killfeedPortrait: 'killfeedPortrait',
-      background: 'background',
-      backgroundGradientColors: [],
-      assetPath: 'assetPath',
-      isFullPortraitRightFacing: false,
-      isPlayableCharacter: false,
-      isAvailableForTest: false,
-      isBaseContent: false,
-      role: Role(
-          uuid: '1',
-          displayName: 'displayName',
-          description: ' description',
-          displayIcon: 'displayIcon',
-          assetPath: 'assetPath'),
-      abilities: [],
-      voiceLine: VoiceLine(minDuration: 1, maxDuration: 1, mediaList: [])),
+    uuid: '1',
+    displayName: 'agent1',
+    description: 'description',
+    developerName: 'developerName',
+    killfeedPortrait: 'killfeedPortrait',
+    role: Role(
+        uuid: '1',
+        displayName: 'displayName',
+        description: ' description',
+        displayIcon: 'displayIcon',
+        assetPath: 'assetPath'),
+    abilities: [],
+  ),
 ];
