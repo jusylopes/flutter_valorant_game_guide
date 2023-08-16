@@ -2,55 +2,39 @@ class WeaponModel {
   final String uuid;
   final String displayName;
   final String category;
-  final String defaultSkinUuid;
   final String displayIcon;
-  final String killStreamIcon;
-  final String assetPath;
   final WeaponStats? weaponStats;
   final ShopData? shopData;
-  final List<Skin>? skins;
 
   WeaponModel({
     required this.uuid,
     required this.displayName,
     required this.category,
-    required this.defaultSkinUuid,
     required this.displayIcon,
-    required this.killStreamIcon,
-    required this.assetPath,
-  this.weaponStats,
-   this.shopData,
-    this.skins,
+    this.weaponStats,
+    this.shopData,
   });
 
   factory WeaponModel.fromJson(Map<String, dynamic> json) => WeaponModel(
         uuid: json["uuid"],
         displayName: json["displayName"],
         category: json["category"],
-        defaultSkinUuid: json["defaultSkinUuid"],
         displayIcon: json["displayIcon"],
-        killStreamIcon: json["killStreamIcon"],
-        assetPath: json["assetPath"],
-        weaponStats:  json["weaponStats"] == null
+        weaponStats: json["weaponStats"] == null
             ? null
             : WeaponStats.fromJson(json["weaponStats"]),
         shopData: json["shopData"] == null
             ? null
             : ShopData.fromJson(json["shopData"]),
-        skins: List<Skin>.from(json["skins"].map((x) => Skin.fromJson(x))),
       );
 
   Map<String, dynamic> toJson() => {
         "uuid": uuid,
         "displayName": displayName,
         "category": category,
-        "defaultSkinUuid": defaultSkinUuid,
         "displayIcon": displayIcon,
-        "killStreamIcon": killStreamIcon,
-        "assetPath": assetPath,
         "weaponStats": weaponStats?.toJson(),
         "shopData": shopData?.toJson(),
-        "skins": List<dynamic>.from(skins!.map((x) => x)),
       };
 }
 
@@ -121,133 +105,6 @@ class GridPosition {
   Map<String, dynamic> toJson() => {
         "row": row,
         "column": column,
-      };
-}
-
-class Skin {
-  final String uuid;
-  final String displayName;
-  final String themeUuid;
-  final String? contentTierUuid;
-  final String? displayIcon;
-  final String? wallpaper;
-  final String assetPath;
-  final List<Chroma>? chromas;
-  final List<Level>? levels;
-
-  Skin({
-    required this.uuid,
-    required this.displayName,
-    required this.themeUuid,
-    this.contentTierUuid,
-    this.displayIcon,
-    this.wallpaper,
-    required this.assetPath,
-    this.chromas,
-    this.levels,
-  });
-
-  factory Skin.fromJson(Map<String, dynamic> json) => Skin(
-        uuid: json["uuid"],
-        displayName: json["displayName"],
-        themeUuid: json["themeUuid"],
-        contentTierUuid: json["contentTierUuid"],
-        displayIcon: json["displayIcon"],
-        wallpaper: json["wallpaper"],
-        assetPath: json["assetPath"],
-        chromas:
-            List<Chroma>.from(json["chromas"].map((x) => Chroma.fromJson(x))),
-        levels: List<Level>.from(json["levels"].map((x) => Level.fromJson(x))),
-      );
-
-  Map<String, dynamic> toJson() => {
-        "uuid": uuid,
-        "displayName": displayName,
-        "themeUuid": themeUuid,
-        "contentTierUuid": contentTierUuid,
-        "displayIcon": displayIcon,
-        "wallpaper": wallpaper,
-        "assetPath": assetPath,
-        "chromas":
-            chromas == null ? [] : List<dynamic>.from(chromas!.map((x) => x)),
-        "levels":
-            levels == null ? [] : List<dynamic>.from(levels!.map((x) => x)),
-      };
-}
-
-class Chroma {
-  final String uuid;
-  final String displayName;
-  final String? displayIcon;
-  final String fullRender;
-  final String? swatch;
-  final String? streamedVideo;
-  final String assetPath;
-
-  Chroma({
-    required this.uuid,
-    required this.displayName,
-    this.displayIcon,
-    required this.fullRender,
-    this.swatch,
-    this.streamedVideo,
-    required this.assetPath,
-  });
-
-  factory Chroma.fromJson(Map<String, dynamic> json) => Chroma(
-        uuid: json["uuid"],
-        displayName: json["displayName"],
-        displayIcon: json["displayIcon"],
-        fullRender: json["fullRender"],
-        swatch: json["swatch"],
-        streamedVideo: json["streamedVideo"],
-        assetPath: json["assetPath"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "uuid": uuid,
-        "displayName": displayName,
-        "displayIcon": displayIcon,
-        "fullRender": fullRender,
-        "swatch": swatch,
-        "streamedVideo": streamedVideo,
-        "assetPath": assetPath,
-      };
-}
-
-class Level {
-  final String uuid;
-  final String displayName;
-  final String? levelItem;
-  final String? displayIcon;
-  final String? streamedVideo;
-  final String assetPath;
-
-  Level({
-    required this.uuid,
-    required this.displayName,
-    this.levelItem,
-    this.displayIcon,
-    this.streamedVideo,
-    required this.assetPath,
-  });
-
-  factory Level.fromJson(Map<String, dynamic> json) => Level(
-        uuid: json["uuid"],
-        displayName: json["displayName"],
-        levelItem: json["levelItem"],
-        displayIcon: json["displayIcon"],
-        streamedVideo: json["streamedVideo"],
-        assetPath: json["assetPath"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "uuid": uuid,
-        "displayName": displayName,
-        "levelItem": levelItem,
-        "displayIcon": displayIcon,
-        "streamedVideo": streamedVideo,
-        "assetPath": assetPath,
       };
 }
 
