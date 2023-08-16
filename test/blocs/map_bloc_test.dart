@@ -46,14 +46,8 @@ void main() {
 
 final maps = <MapModel>[
   MapModel(
-      uuid: 'uuid',
-      displayName: 'displayName',
-      listViewIcon: 'listViewIcon',
-      splash: 'splash',
-      assetPath: 'assetPath',
-      mapUrl: 'mapUrl',
-      xMultiplier: 0,
-      yMultiplier:0,
-      xScalarToAdd: 0,
-      yScalarToAdd:0),
+    uuid: 'uuid',
+    displayName: 'displayName',
+    listViewIcon: 'listViewIcon',
+  ),
 ];
